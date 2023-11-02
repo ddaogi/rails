@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :articles
+      resources :comments
+
+      root to: "articles#index"
+    end
   root "articles#index"
   # get '/articles', to: 'articles#index'
   # get '/articles/:id', to: 'articles#show'
