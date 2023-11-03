@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admin do
       resources :articles
       resources :comments
+      resources :users
 
       root to: "articles#index"
     end

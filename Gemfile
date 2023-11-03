@@ -76,3 +76,5 @@ gem 'administrate-field-active_storage'
 gem 'administrate-field-acts_as_taggable'
 
 gem 'image_processing'
+
+gem 'devise'
