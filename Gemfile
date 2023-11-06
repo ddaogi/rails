@@ -78,3 +78,5 @@ gem 'administrate-field-acts_as_taggable'
 gem 'image_processing'
 
 gem 'devise'
+gem "devise-jwt", "~> 0.10"
+gem "google-api-client", "~> 0.53.0"
