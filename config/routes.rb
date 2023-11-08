@@ -5,9 +5,13 @@ Rails.application.routes.draw do
       resources :comments
       resources :users
 
-      root to: "articles#index"
+      # root to: "articles#index"
     end
-  root "articles#index"
+  # root "articles#index"
+
+  resources :users, only: [:index]
+
+  # get '/articles/new', to: 'articles#new'
   # get '/articles', to: 'articles#index'
   # get '/articles/:id', to: 'articles#show'
 

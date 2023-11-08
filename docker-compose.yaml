@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  server:
+    build: .
+    command: bash -c "bundle exec rails s -p 8080 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+volumes:
+  db-data:
