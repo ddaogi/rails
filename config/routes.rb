@@ -4,11 +4,20 @@ Rails.application.routes.draw do
       resources :articles
       resources :comments
       resources :users
+      resources :posts
+      resources :characters
 
       # root to: "articles#index"
-    end
+  end
   # root "articles#index"
 
+
+  namespace :api do
+    namespace :toby do
+      resources :posts
+      resources :characters, only: %i[index show]
+    end
+  end
   resources :users, only: [:index]
 
   # get '/articles/new', to: 'articles#new'

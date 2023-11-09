@@ -50,9 +50,22 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-end
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "dotenv-rails"
 
+  gem "rubocop", "~> 1.54", ">= 1.54.1"
+  gem "rubocop-performance", "~> 1.18"
+  gem "rubocop-rails", "~> 2.20", ">= 2.20.2"
+  gem "rubocop-rspec", "~> 2.22"
+
+  gem "factory_bot_rails", "~> 6.2"
+  gem "faker", "~> 3.2"
+  gem "rspec-rails", "~> 6.0", ">= 6.0.3"
+
+  gem "ruby-prof", require: false
+
+  gem "bullet", "~> 7.0", ">= 7.0.7"
+end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -86,3 +99,5 @@ gem 'rack-cors', require: 'rack/cors'
 
 #mysql 젬 설치
 gem 'mysql2'
+
+gem 'pagy'
