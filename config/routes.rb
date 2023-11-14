@@ -6,7 +6,10 @@ Rails.application.routes.draw do
       resources :users
       resources :posts
       resources :characters
-
+      resources :options
+      resources :questions
+      resources :surveys
+      resources :responses
       # root to: "articles#index"
   end
   # root "articles#index"
@@ -16,6 +19,10 @@ Rails.application.routes.draw do
     namespace :toby do
       resources :posts
       resources :characters, only: %i[index show]
+      resources :options
+      resources :questions
+      resources :surveys
+      resources :responses
     end
   end
   resources :users, only: [:index]

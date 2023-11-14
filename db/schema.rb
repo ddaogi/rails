@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_09_071418) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_14_055048) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -36,6 +36,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_071418) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
+  create_table "options", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.string "content"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -43,6 +52,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_071418) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_posts_on_character_id"
+  end
+
+  create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "survey_id", null: false
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "responses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "option_id"
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "identifier"
+    t.index ["option_id"], name: "index_responses_on_option_id"
+    t.index ["question_id"], name: "index_responses_on_question_id"
+  end
+
+  create_table "surveys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -63,5 +98,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_071418) do
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "options", "questions"
   add_foreign_key "posts", "characters"
+  add_foreign_key "questions", "surveys"
+  add_foreign_key "responses", "options"
+  add_foreign_key "responses", "questions"
 end

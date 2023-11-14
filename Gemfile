@@ -9,11 +9,11 @@ gem "rails", "~> 7.0.6"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
-# gem "sqlite3", "~> 1.4"
+# Use mysql as the database for Active Record
+gem "mysql2", "~> 0.5"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.3"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -28,7 +28,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 5.0", ">= 5.0.7"
+gem "redis-rails", "~> 5.0", ">= 5.0.2"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -37,16 +38,85 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
+
+# Use Slim templates(ERB)
+gem "slim-rails"
+
+# Use Frontend
+gem "bootstrap"
+gem "feathericon-rails"
+gem "jquery-rails"
+
+# Use Form Builder
+gem "simple_form"
+
+# Use easily searching to Models
+gem "ransack"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+gem "aws-sdk-s3", "~> 1.132"
+
+gem "sidekiq", "~> 7.0.3"
+gem "sidekiq-cron", "~> 1.2"
+gem "sidekiq-unique-jobs", "~> 8.0", ">= 8.0.2"
+
+gem "rack-cors", "~> 2.0", ">= 2.0.1"
+
+# Use Auth
+gem "devise", "~> 4.9"
+gem "devise-jwt", "~> 0.10"
+gem "google-api-client", "~> 0.53.0"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
+
+# Use Admin
+gem "administrate", "~> 0.18"
+gem "administrate-field-nested_has_many"
+gem "administrate-field-active_storage", "~> 0.4.2"
+gem "administrate-field-acts_as_taggable", "~> 0.0.4"
+gem "image_processing", "~> 1.12", ">= 1.12.2"
+gem "cocoon"
+
+# Default Avatar
+gem "letter_avatar", "~> 0.3.9"
+
+# Use Pagination
+gem "pagy", "~> 6.0", ">= 6.0.4"
+
+# Use Serializer
+gem "active_model_serializers"
+gem "hashid-rails", "~> 1.4", ">= 1.4.1"
+
+gem "rswag"
+
+gem "hashids", "~> 1.0", ">= 1.0.6"
+gem "http_accept_language", "~> 2.1", ">= 2.1.1"
+gem "httparty", "~> 0.21.0"
+gem "user_agent_parser", "~> 2.16"
+
+# Use Sentry
+gem "acts-as-taggable-on", "~> 9.0"
+gem "sentry-rails"
+gem "sentry-ruby"
+
+gem "activerecord-import", "~> 1.5"
+gem "find_with_order", "~> 1.3", ">= 1.3.1"
+gem "paranoia", "~> 2.6", ">= 2.6.2"
+
+# active_storage validator
+gem "active_storage_validations", "~> 1.0", ">= 1.0.4"
+
+# web socket load balancer
+gem "anycable-rails", "~> 1.4", ">= 1.4.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -66,6 +136,7 @@ group :development, :test do
 
   gem "bullet", "~> 7.0", ">= 7.0.7"
 end
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -74,7 +145,9 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring", "~> 4.1", ">= 4.1.1"
+  gem "spring-commands-rspec", "~> 1.0", ">= 1.0.4"
+  gem "spring-watcher-listen", "~> 2.1"
 end
 
 group :test do
@@ -82,22 +155,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  gem "rubocop-rspec", "~> 2.22"
+
+  gem "rspec-sidekiq", "~> 3.1"
+  gem "timecop", "~> 0.9.8"
+  gem "vcr", "~> 6.2"
+  gem "webmock", "~> 3.18", ">= 3.18.1"
 end
-
-gem 'administrate'
-gem 'administrate-field-active_storage'
-gem 'administrate-field-acts_as_taggable'
-
-gem 'image_processing'
-
-gem 'devise'
-gem "devise-jwt", "~> 0.10"
-gem "google-api-client", "~> 0.53.0"
-
-gem 'rack-cors', require: 'rack/cors'
-
-
-#mysql 젬 설치
-gem 'mysql2'
-
-gem 'pagy'
