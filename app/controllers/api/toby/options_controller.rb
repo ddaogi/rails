@@ -16,9 +16,7 @@ module Api
       private
       def option_params
         params.require(:option).permit(:content, :score, :question_id)
-
       end
-
     end
   end
 end
