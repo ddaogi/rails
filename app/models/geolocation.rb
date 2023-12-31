@@ -15,10 +15,6 @@ class Geolocation
       end
     end
     def load_data
-
-      # URL에서 파일 다운로드
-
-
       data = []
       # 다운로드한 파일 처리
       Zlib::GzipReader.open(file_path) do |gz|

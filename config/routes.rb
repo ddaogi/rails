@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :questions
       resources :surveys
       resources :responses
-      # root to: "articles#index"
+      root to: "articles#index"
   end
   # root "articles#index"
 
