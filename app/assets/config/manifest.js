@@ -5,3 +5,5 @@
 //= link administrate-field-active_storage/application.css
 //= link administrate-field-taggable/application.js
 //= link administrate-field-taggable/application.css
+//= link administrate-field-nested_has_many/application.css
+//= link administrate-field-nested_has_many/application.js

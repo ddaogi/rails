@@ -7,9 +7,6 @@ Rails.application.routes.draw do
       resources :posts
       resources :characters
       resources :options
-      resources :questions
-      resources :surveys
-      resources :responses
       root to: "articles#index"
   end
   # root "articles#index"
