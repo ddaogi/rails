@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       root to: "articles#index"
   end
   # root "articles#index"
-
+  get "country", to: "geolocation#show"
 
   namespace :api do
     namespace :toby do

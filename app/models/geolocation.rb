@@ -26,5 +26,9 @@ class Geolocation
       puts "data read done"
 
     end
+
+    def find_by_ip
+
+    end
   end
 end
